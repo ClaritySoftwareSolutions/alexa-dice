@@ -2,7 +2,9 @@ package uk.co.claritysoftware.alexa.skills.dice.speech.intent;
 
 import java.util.Optional;
 import java.util.stream.Stream;
+import uk.co.claritysoftware.alexa.skills.dice.speech.intent.handler.DiceRoller;
 import uk.co.claritysoftware.alexa.skills.dice.speech.intent.handler.HelpIntentHandler;
+import uk.co.claritysoftware.alexa.skills.dice.speech.intent.handler.RollDiceIntentHandler;
 import uk.co.claritysoftware.alexa.skills.dice.speech.intent.handler.UnknownIntentHandler;
 import uk.co.claritysoftware.alexa.skills.speech.intent.AlexaIntent;
 import uk.co.claritysoftware.alexa.skills.speech.intent.IntentHandler;
@@ -12,13 +14,7 @@ import uk.co.claritysoftware.alexa.skills.speech.intent.IntentHandler;
  */
 public enum DiceRollerIntent implements AlexaIntent {
 
-/*
-	ROLL_DICE_INTENT("RollDiceIntent"),
-
-	HELP_INTENT("AMAZON.HelpIntent"),
-
-	STOP_INTENT("AMAZON.StopIntent");
-*/
+	ROLL_DICE_INTENT("RollDiceIntent", new RollDiceIntentHandler(new DiceRoller())),
 
 	HELP_INTENT("AMAZON.HelpIntent", new HelpIntentHandler()),
 
