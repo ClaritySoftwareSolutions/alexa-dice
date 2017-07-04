@@ -5,6 +5,6 @@ package uk.co.claritysoftware.alexa.skills.speech.intent;
  */
 public interface AlexaIntent {
 
-	String getValue();
+	IntentHandler getIntentHandler();
 
 }

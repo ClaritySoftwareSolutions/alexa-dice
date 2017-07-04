@@ -19,6 +19,36 @@ public class SpeechletResponseAssert extends AbstractAssert<SpeechletResponseAss
 	}
 
 	/**
+	 * Assert that the {@link SpeechletResponse} is an Ask Response
+	 *
+	 * @return this {@link SpeechletResponseAssert} for further assertion chaining
+	 */
+	public SpeechletResponseAssert isAnAskResponse() {
+		if (this.actual.getReprompt() == null) {
+			failWithMessage("Was expecting a Reprompt object, but there was none. This is likely to be a Tell Response");
+		}
+		if (this.actual.getShouldEndSession()) {
+			failWithMessage("Was expecting the session to be set to not end, but it was. This is likely to be a Tell Response");
+		}
+		return this;
+	}
+
+	/**
+	 * Assert that the {@link SpeechletResponse} is a Tell Response
+	 *
+	 * @return this {@link SpeechletResponseAssert} for further assertion chaining
+	 */
+	public SpeechletResponseAssert isATellResponse() {
+		if (this.actual.getReprompt() != null) {
+			failWithMessage("Was expecting not to have a Reprompt object, but there was one. This is likely to be an Ask Response");
+		}
+		if (!this.actual.getShouldEndSession()) {
+			failWithMessage("Was expecting the session to be set to end, but it wasn't. This is likely to be an Ask Response");
+		}
+		return this;
+	}
+
+	/**
 	 * Assert that the {@link SpeechletResponse} has the specified speech ssml
 	 *
 	 * @param expectedSpeechText the expected speech ssml

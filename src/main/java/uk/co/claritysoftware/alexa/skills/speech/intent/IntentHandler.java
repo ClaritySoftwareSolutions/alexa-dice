@@ -11,12 +11,6 @@ import com.amazon.speech.speechlet.SpeechletResponse;
 public interface IntentHandler {
 
 	/**
-	 * @param intentName the name of the intent that needs handling
-	 * @return true if this instance handles the specified {@link AlexaIntent}
-	 */
-	boolean handles(String intentName);
-
-	/**
 	 * Handles the intent
 	 *
 	 * @param requestEnvelope the {@link SpeechletRequestEnvelope} encapulating the {@link IntentRequest} and {@link Session}
