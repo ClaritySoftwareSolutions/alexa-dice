@@ -16,13 +16,15 @@ import org.junit.contrib.java.lang.system.EnvironmentVariables;
  */
 public class DiceRequestStreamHandlerTest {
 
+	private static final String APPLICATION_IDS = "com.amazon.speech.speechlet.servlet.supportedApplicationIds";
+
 	@Rule
 	public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
 	@Test
 	public void shouldConstructGivenSingleApplicationId() {
 		// Given
-		environmentVariables.set("APPLICATION_IDS", "1234");
+		environmentVariables.set(APPLICATION_IDS, "1234");
 
 		Set<String> expectedApplicationIds = Stream.of("1234").collect(Collectors.toSet());
 
@@ -36,7 +38,7 @@ public class DiceRequestStreamHandlerTest {
 	@Test
 	public void shouldConstructGivenMultipleApplicationIds() {
 		// Given
-		environmentVariables.set("APPLICATION_IDS", "1234,5678");
+		environmentVariables.set(APPLICATION_IDS, "1234,5678");
 
 		Set<String> expectedApplicationIds = Stream.of("1234", "5678").collect(Collectors.toSet());
 
@@ -50,7 +52,7 @@ public class DiceRequestStreamHandlerTest {
 	@Test
 	public void shouldConstructGivenMultipleApplicationIdsWithSpaces() {
 		// Given
-		environmentVariables.set("APPLICATION_IDS", "1234, 5678, ,9012");
+		environmentVariables.set(APPLICATION_IDS, "1234, 5678, ,9012");
 
 		Set<String> expectedApplicationIds = Stream.of("1234", "5678", "9012").collect(Collectors.toSet());
 
@@ -74,14 +76,14 @@ public class DiceRequestStreamHandlerTest {
 		}
 		// Then
 		catch (IllegalStateException e) {
-			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty APPLICATION_IDS system property");
+			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty com.amazon.speech.speechlet.servlet.supportedApplicationIds system property");
 		}
 	}
 
 	@Test
 	public void shouldFailToConstructGivenEmptyAPPLICATION_IDS() {
 		// Given
-		environmentVariables.set("APPLICATION_IDS", "");
+		environmentVariables.set(APPLICATION_IDS, "");
 
 		// When
 		try {
@@ -92,14 +94,14 @@ public class DiceRequestStreamHandlerTest {
 		}
 		// Then
 		catch (IllegalStateException e) {
-			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty APPLICATION_IDS system property");
+			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty com.amazon.speech.speechlet.servlet.supportedApplicationIds system property");
 		}
 	}
 
 	@Test
 	public void shouldFailToConstructGivenCollectionOfEmptyAPPLICATION_IDS() {
 		// Given
-		environmentVariables.set("APPLICATION_IDS", ",, , ");
+		environmentVariables.set(APPLICATION_IDS, ",, , ");
 
 		// When
 		try {
@@ -110,7 +112,7 @@ public class DiceRequestStreamHandlerTest {
 		}
 		// Then
 		catch (IllegalStateException e) {
-			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty APPLICATION_IDS system property");
+			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty com.amazon.speech.speechlet.servlet.supportedApplicationIds system property");
 		}
 	}
 

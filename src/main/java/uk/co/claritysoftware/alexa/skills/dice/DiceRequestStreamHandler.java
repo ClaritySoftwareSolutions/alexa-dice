@@ -15,19 +15,21 @@ public final class DiceRequestStreamHandler extends SpeechletRequestStreamHandle
 
 	private static final Logger LOG = LoggerFactory.getLogger(DiceSpeechlet.class);
 
+	private static final String APPLICATION_IDS = "com.amazon.speech.speechlet.servlet.supportedApplicationIds";
+
 	public DiceRequestStreamHandler() {
 		super(new DiceSpeechlet(), applicationIds());
 	}
 
 	private static Set<String> applicationIds() {
-		final String appIds = System.getenv("APPLICATION_IDS") != null ? System.getenv("APPLICATION_IDS") : "";
+		final String appIds = System.getenv(APPLICATION_IDS) != null ? System.getenv(APPLICATION_IDS) : "";
 		final Set<String> applicationIds = Arrays.stream(appIds.split(",\\s*"))
 				.map(String::trim)
 				.filter(applicationId -> applicationId.length() > 0)
 				.collect(Collectors.toSet());
 
 		if (applicationIds.isEmpty()) {
-			throw new IllegalStateException("Cannot instantiate DiceRequestStreamHandler with null or empty APPLICATION_IDS system property");
+			throw new IllegalStateException("Cannot instantiate DiceRequestStreamHandler with null or empty " + APPLICATION_IDS + " system property");
 		}
 
 		LOG.trace("Returning application ids {}", applicationIds);
