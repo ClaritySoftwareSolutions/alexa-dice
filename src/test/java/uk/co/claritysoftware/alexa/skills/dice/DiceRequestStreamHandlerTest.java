@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.RestoreSystemProperties;
+import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
 /**
  * Unit test class for {@link DiceRequestStreamHandler}
@@ -17,12 +17,12 @@ import org.junit.contrib.java.lang.system.RestoreSystemProperties;
 public class DiceRequestStreamHandlerTest {
 
 	@Rule
-	public final RestoreSystemProperties restoreSystemProperties = new RestoreSystemProperties();
+	public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
 
 	@Test
 	public void shouldConstructGivenSingleApplicationId() {
 		// Given
-		System.setProperty("APPLICATION_IDS", "1234");
+		environmentVariables.set("APPLICATION_IDS", "1234");
 
 		Set<String> expectedApplicationIds = Stream.of("1234").collect(Collectors.toSet());
 
@@ -36,7 +36,7 @@ public class DiceRequestStreamHandlerTest {
 	@Test
 	public void shouldConstructGivenMultipleApplicationIds() {
 		// Given
-		System.setProperty("APPLICATION_IDS", "1234,5678");
+		environmentVariables.set("APPLICATION_IDS", "1234,5678");
 
 		Set<String> expectedApplicationIds = Stream.of("1234", "5678").collect(Collectors.toSet());
 
@@ -50,7 +50,7 @@ public class DiceRequestStreamHandlerTest {
 	@Test
 	public void shouldConstructGivenMultipleApplicationIdsWithSpaces() {
 		// Given
-		System.setProperty("APPLICATION_IDS", "1234, 5678, ,9012");
+		environmentVariables.set("APPLICATION_IDS", "1234, 5678, ,9012");
 
 		Set<String> expectedApplicationIds = Stream.of("1234", "5678", "9012").collect(Collectors.toSet());
 
@@ -81,7 +81,7 @@ public class DiceRequestStreamHandlerTest {
 	@Test
 	public void shouldFailToConstructGivenEmptyAPPLICATION_IDS() {
 		// Given
-		System.setProperty("APPLICATION_IDS", "");
+		environmentVariables.set("APPLICATION_IDS", "");
 
 		// When
 		try {
@@ -99,7 +99,7 @@ public class DiceRequestStreamHandlerTest {
 	@Test
 	public void shouldFailToConstructGivenCollectionOfEmptyAPPLICATION_IDS() {
 		// Given
-		System.setProperty("APPLICATION_IDS", ",, , ");
+		environmentVariables.set("APPLICATION_IDS", ",, , ");
 
 		// When
 		try {

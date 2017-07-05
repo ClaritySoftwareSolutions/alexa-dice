@@ -20,7 +20,7 @@ public final class DiceRequestStreamHandler extends SpeechletRequestStreamHandle
 	}
 
 	private static Set<String> applicationIds() {
-		final String appIds = System.getProperty("APPLICATION_IDS") != null ? System.getProperty("APPLICATION_IDS") : "";
+		final String appIds = System.getenv("APPLICATION_IDS") != null ? System.getenv("APPLICATION_IDS") : "";
 		final Set<String> applicationIds = Arrays.stream(appIds.split(",\\s*"))
 				.map(String::trim)
 				.filter(applicationId -> applicationId.length() > 0)
