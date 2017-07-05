@@ -1,7 +1,5 @@
 package uk.co.claritysoftware.alexa.skills.dice.speech;
 
-import static uk.co.claritysoftware.alexa.skills.dice.speech.intent.DiceRollerIntent.UNKNOWN_INTENT;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.amazon.speech.json.SpeechletRequestEnvelope;
@@ -28,8 +26,9 @@ public class DiceSpeechlet extends AbstractSpeechlet {
 		LOG.debug("onIntent requestId={}, sessionId={}", requestEnvelope.getRequest().getRequestId(),
 				requestEnvelope.getSession().getSessionId());
 
-		return DiceRollerIntent.from(getIntentName(requestEnvelope))
-				.orElse(UNKNOWN_INTENT)
+		final String intentName = getIntentName(requestEnvelope);
+		return DiceRollerIntent.from(intentName)
+				.orElseThrow(() -> new IllegalArgumentException("No intent with name " + intentName))
 				.getIntentHandler()
 				.handleIntent(requestEnvelope);
 	}
