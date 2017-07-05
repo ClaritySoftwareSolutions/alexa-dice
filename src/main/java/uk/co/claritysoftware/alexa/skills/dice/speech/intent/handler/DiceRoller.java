@@ -1,5 +1,7 @@
 package uk.co.claritysoftware.alexa.skills.dice.speech.intent.handler;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * Simple class to encapsulate dice rolling behaviour
  */
@@ -13,7 +15,7 @@ public class DiceRoller {
 	 * @return a random value between 1 and 6
 	 */
 	public int rollDice() {
-		return (int) Math.ceil(Math.random() * DICE_SIDES);
+		return ThreadLocalRandom.current().nextInt(1, DICE_SIDES +1);
 	}
 
 }
