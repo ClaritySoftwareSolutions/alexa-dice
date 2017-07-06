@@ -5,7 +5,7 @@ import static com.amazon.speech.speechlet.SpeechletResponse.newTellResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.amazon.speech.json.SpeechletRequestEnvelope;
-import com.amazon.speech.speechlet.IntentRequest;
+import com.amazon.speech.speechlet.CoreSpeechletRequest;
 import com.amazon.speech.speechlet.SpeechletResponse;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
 import uk.co.claritysoftware.alexa.skills.speech.intent.IntentHandler;
@@ -24,7 +24,7 @@ public class RollDiceIntentHandler implements IntentHandler {
 	}
 
 	@Override
-	public SpeechletResponse handleIntent(final SpeechletRequestEnvelope<IntentRequest> requestEnvelope) {
+	public SpeechletResponse handleIntent(final SpeechletRequestEnvelope<? extends CoreSpeechletRequest> requestEnvelope) {
 		LOG.debug("handleIntent requestId={}, sessionId={}", requestEnvelope.getRequest().getRequestId(),
 				requestEnvelope.getSession().getSessionId());
 

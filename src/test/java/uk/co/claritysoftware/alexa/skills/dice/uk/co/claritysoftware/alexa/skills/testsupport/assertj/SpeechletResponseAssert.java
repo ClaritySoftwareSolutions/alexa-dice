@@ -1,5 +1,6 @@
 package uk.co.claritysoftware.alexa.skills.dice.uk.co.claritysoftware.alexa.skills.testsupport.assertj;
 
+import java.util.regex.Pattern;
 import org.assertj.core.api.AbstractAssert;
 import com.amazon.speech.speechlet.SpeechletResponse;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
@@ -49,14 +50,27 @@ public class SpeechletResponseAssert extends AbstractAssert<SpeechletResponseAss
 	}
 
 	/**
-	 * Assert that the {@link SpeechletResponse} has the specified speech ssml
+	 * Assert that the {@link SpeechletResponse} has the specified speech text
 	 *
-	 * @param expectedSpeechText the expected speech ssml
+	 * @param expectedSpeechText the expected speech text
 	 * @return this {@link SpeechletResponseAssert} for further assertion chaining
 	 */
 	public SpeechletResponseAssert hasPlainTextOutputSpeech(String expectedSpeechText) {
 		PlainTextOutputSpeech outputSpeech = (PlainTextOutputSpeech) this.actual.getOutputSpeech();
 		PlainTextOutputSpeechAssert.assertThat(outputSpeech).hasText(expectedSpeechText);
+
+		return this;
+	}
+
+	/**
+	 * Assert that the {@link SpeechletResponse} text matches the specified pattern
+	 *
+	 * @param expectedSpeechTextPattern the pattern for the expected speech text
+	 * @return this {@link SpeechletResponseAssert} for further assertion chaining
+	 */
+	public SpeechletResponseAssert hasPlainTextOutputSpeech(Pattern expectedSpeechTextPattern) {
+		PlainTextOutputSpeech outputSpeech = (PlainTextOutputSpeech) this.actual.getOutputSpeech();
+		PlainTextOutputSpeechAssert.assertThat(outputSpeech).hasText(expectedSpeechTextPattern);
 
 		return this;
 	}

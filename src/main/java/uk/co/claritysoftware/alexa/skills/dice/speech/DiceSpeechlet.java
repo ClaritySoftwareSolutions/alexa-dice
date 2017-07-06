@@ -18,7 +18,8 @@ public class DiceSpeechlet extends AbstractSpeechlet {
 
 	@Override
 	public SpeechletResponse onLaunch(final SpeechletRequestEnvelope<LaunchRequest> requestEnvelope) {
-		return null;
+		return DiceRollerIntent.ROLL_DICE_INTENT.getIntentHandler()
+				.handleIntent(requestEnvelope);
 	}
 
 	@Override

@@ -2,11 +2,14 @@ package uk.co.claritysoftware.alexa.skills.dice.speech;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
+import static uk.co.claritysoftware.alexa.skills.dice.uk.co.claritysoftware.alexa.skills.testsupport.SpeechletRequestEnvelopeTestDataFactory.launchSpeechletRequestEnvelope;
 import static uk.co.claritysoftware.alexa.skills.dice.uk.co.claritysoftware.alexa.skills.testsupport.SpeechletRequestEnvelopeTestDataFactory.speechletRequestEnvelopeWithIntentName;
 
+import java.util.regex.Pattern;
 import org.junit.Test;
 import com.amazon.speech.json.SpeechletRequestEnvelope;
 import com.amazon.speech.speechlet.IntentRequest;
+import com.amazon.speech.speechlet.LaunchRequest;
 import com.amazon.speech.speechlet.SpeechletResponse;
 import uk.co.claritysoftware.alexa.skills.dice.uk.co.claritysoftware.alexa.skills.testsupport.assertj.SpeechletResponseAssert;
 
@@ -16,6 +19,22 @@ import uk.co.claritysoftware.alexa.skills.dice.uk.co.claritysoftware.alexa.skill
 public class DiceSpeechletTest {
 
 	private DiceSpeechlet speechlet = new DiceSpeechlet();
+
+	@Test
+	public void shouldOnLaunch() {
+		// Given
+		SpeechletRequestEnvelope<LaunchRequest> requestEnvelope = launchSpeechletRequestEnvelope();
+
+		Pattern expectedPlainTextOutputSpeech = Pattern.compile("^You have rolled a [1-6]$");
+
+		// When
+		SpeechletResponse speechletResponse = speechlet.onLaunch(requestEnvelope);
+
+		// Then
+		SpeechletResponseAssert.assertThat(speechletResponse)
+				.isATellResponse()
+				.hasPlainTextOutputSpeech(expectedPlainTextOutputSpeech);
+	}
 
 	@Test
 	public void shouldOnIntentGivenValidIntentName() {

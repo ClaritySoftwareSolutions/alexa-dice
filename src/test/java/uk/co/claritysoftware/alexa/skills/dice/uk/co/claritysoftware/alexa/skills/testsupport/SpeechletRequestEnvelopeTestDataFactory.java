@@ -4,6 +4,7 @@ import com.amazon.speech.json.SpeechletRequestEnvelope;
 import com.amazon.speech.slu.Intent;
 import com.amazon.speech.speechlet.Context;
 import com.amazon.speech.speechlet.IntentRequest;
+import com.amazon.speech.speechlet.LaunchRequest;
 import com.amazon.speech.speechlet.Session;
 
 /**
@@ -41,4 +42,19 @@ public class SpeechletRequestEnvelopeTestDataFactory {
 						.build())
 				.build();
 	}
+
+	public static SpeechletRequestEnvelope<LaunchRequest> launchSpeechletRequestEnvelope() {
+		return SpeechletRequestEnvelope.<LaunchRequest> builder()
+				.withVersion("1.0")
+				.withRequest(LaunchRequest.builder()
+						.withRequestId("12345")
+						.build())
+				.withSession(Session.builder()
+						.withSessionId("67890")
+						.build())
+				.withContext(Context.builder()
+						.build())
+				.build();
+	}
+
 }
