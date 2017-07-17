@@ -6,11 +6,12 @@ import com.amazon.speech.json.SpeechletRequestEnvelope;
 import com.amazon.speech.speechlet.IntentRequest;
 import com.amazon.speech.speechlet.LaunchRequest;
 import com.amazon.speech.speechlet.SpeechletResponse;
+import com.amazon.speech.speechlet.SpeechletV2;
 import uk.co.claritysoftware.alexa.skills.dice.speech.intent.DiceRollerIntent;
 import uk.co.claritysoftware.alexa.skills.speech.AbstractSpeechlet;
 
 /**
- * Dice implementation of {link SpeechletV2}
+ * Dice implementation of {@link SpeechletV2}
  */
 public class DiceSpeechlet extends AbstractSpeechlet {
 

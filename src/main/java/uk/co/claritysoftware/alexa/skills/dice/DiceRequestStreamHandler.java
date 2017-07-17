@@ -6,10 +6,11 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.amazon.speech.speechlet.lambda.SpeechletRequestStreamHandler;
+import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 import uk.co.claritysoftware.alexa.skills.dice.speech.DiceSpeechlet;
 
 /**
- * Main {@link com.amazonaws.services.lambda.runtime.RequestStreamHandler} for the Dice Rolling Alexa Skill
+ * Main {@link RequestStreamHandler} for the Dice Rolling Alexa Skill
  */
 public final class DiceRequestStreamHandler extends SpeechletRequestStreamHandler {
 
