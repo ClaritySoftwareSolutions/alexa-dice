@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ClaritySoftwareSolutions/alexa-skills-dice.svg?branch=develop)](https://travis-ci.org/ClaritySoftwareSolutions/alexa-skills-dice)
+[![Build Status](https://travis-ci.org/ClaritySoftwareSolutions/alexa-skills-dice.svg?branch=master)](https://travis-ci.org/ClaritySoftwareSolutions/alexa-skills-dice)
 
 ----
 # alexa-skills-dice
