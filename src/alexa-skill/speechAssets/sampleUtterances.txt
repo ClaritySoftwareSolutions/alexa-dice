@@ -1,0 +1,4 @@
+RollDiceIntent to roll a dice
+RollDiceIntent to roll the dice
+RollDiceIntent to throw a dice
+RollDiceIntent to throw the dice
