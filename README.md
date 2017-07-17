@@ -33,3 +33,7 @@ to an `IntentHandler` and calls it's `handleIntent` method.
 `IntentHandler` is an interface whose implementations handle one specific intent.
 * `RollDiceIntentHander` is resposible for rolling the dice and generating a `SpeechletResponse` describing the dice value.
 * `HelpIntentHandler` is responsible for generating a `SpeechletResponse` containing help.
+
+
+Copyright &copy; 2017 [Clarity Software Solutions Limited](https://claritysoftware.co.uk)
+
