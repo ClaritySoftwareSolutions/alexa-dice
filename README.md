@@ -18,7 +18,7 @@ The Alexa Skill can be configured to invoke a lambda to perform the skill action
 #### Core Classes
 ##### DiceRequestStreamHandler
 `DiceRequestStreamHandler` is the implementation of `SpeechletRequestStreamHandler`.
-* The supported application ids are resolved from the system environment variable `com.amazon.speech.speechlet.servlet.supportedApplicationIds`, preventing them being hardcoded.
+* The supported application ids are resolved from the system environment variable `com_amazon_speech_speechlet_servlet_supportedApplicationIds`, preventing them being hardcoded.
 * `DiceSpeechlet` (the instance of `SpeechletV2`) is simply new'ed up inline.
 
 ##### DiceSpeechlet
@@ -30,6 +30,9 @@ The Alexa Skill can be configured to invoke a lambda to perform the skill action
 `IntentHandler` is an interface whose implementations handle one specific intent.
 * `RollDiceIntentHander` is resposible for rolling the dice and generating a `SpeechletResponse` describing the dice value.
 * `HelpIntentHandler` is responsible for generating a `SpeechletResponse` containing help.
+
+#### Alexa Skill Config
+Whilst not part of the lambda itself, the Alexa Skill config has been included for completeness in the folder `src/alexa-skill`.
 
 ----
 Copyright &copy; 2017 [Clarity Software Solutions Limited](https://claritysoftware.co.uk)

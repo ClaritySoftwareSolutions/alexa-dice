@@ -16,7 +16,7 @@ public final class DiceRequestStreamHandler extends SpeechletRequestStreamHandle
 
 	private static final Logger LOG = LoggerFactory.getLogger(DiceSpeechlet.class);
 
-	private static final String APPLICATION_IDS = "com.amazon.speech.speechlet.servlet.supportedApplicationIds";
+	private static final String APPLICATION_IDS = "com_amazon_speech_speechlet_servlet_supportedApplicationIds";
 
 	public DiceRequestStreamHandler() {
 		super(new DiceSpeechlet(), applicationIds());
