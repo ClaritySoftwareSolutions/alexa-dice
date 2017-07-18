@@ -31,6 +31,9 @@ The Alexa Skill can be configured to invoke a lambda to perform the skill action
 * `RollDiceIntentHander` is resposible for rolling the dice and generating a `SpeechletResponse` describing the dice value.
 * `HelpIntentHandler` is responsible for generating a `SpeechletResponse` containing help.
 
+#### Alexa Skill Config
+Whilst not part of the lambda itself, the Alexa Skill config has been included for completeness in the folder `src/alexa-skill`.
+
 ----
 Copyright &copy; 2017 [Clarity Software Solutions Limited](https://claritysoftware.co.uk)
 
