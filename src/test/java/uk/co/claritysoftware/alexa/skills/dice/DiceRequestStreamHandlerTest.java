@@ -16,7 +16,7 @@ import org.junit.contrib.java.lang.system.EnvironmentVariables;
  */
 public class DiceRequestStreamHandlerTest {
 
-	private static final String APPLICATION_IDS = "com.amazon.speech.speechlet.servlet.supportedApplicationIds";
+	private static final String APPLICATION_IDS = "com_amazon_speech_speechlet_servlet_supportedApplicationIds";
 
 	@Rule
 	public final EnvironmentVariables environmentVariables = new EnvironmentVariables();
@@ -76,7 +76,7 @@ public class DiceRequestStreamHandlerTest {
 		}
 		// Then
 		catch (IllegalStateException e) {
-			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty com.amazon.speech.speechlet.servlet.supportedApplicationIds system property");
+			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty com_amazon_speech_speechlet_servlet_supportedApplicationIds system property");
 		}
 	}
 
@@ -94,7 +94,7 @@ public class DiceRequestStreamHandlerTest {
 		}
 		// Then
 		catch (IllegalStateException e) {
-			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty com.amazon.speech.speechlet.servlet.supportedApplicationIds system property");
+			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty com_amazon_speech_speechlet_servlet_supportedApplicationIds system property");
 		}
 	}
 
@@ -112,7 +112,7 @@ public class DiceRequestStreamHandlerTest {
 		}
 		// Then
 		catch (IllegalStateException e) {
-			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty com.amazon.speech.speechlet.servlet.supportedApplicationIds system property");
+			assertThat(e.getMessage()).isEqualTo("Cannot instantiate DiceRequestStreamHandler with null or empty com_amazon_speech_speechlet_servlet_supportedApplicationIds system property");
 		}
 	}
 

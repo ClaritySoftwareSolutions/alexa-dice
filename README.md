@@ -18,7 +18,7 @@ The Alexa Skill can be configured to invoke a lambda to perform the skill action
 #### Core Classes
 ##### DiceRequestStreamHandler
 `DiceRequestStreamHandler` is the implementation of `SpeechletRequestStreamHandler`.
-* The supported application ids are resolved from the system environment variable `com.amazon.speech.speechlet.servlet.supportedApplicationIds`, preventing them being hardcoded.
+* The supported application ids are resolved from the system environment variable `com_amazon_speech_speechlet_servlet_supportedApplicationIds`, preventing them being hardcoded.
 * `DiceSpeechlet` (the instance of `SpeechletV2`) is simply new'ed up inline.
 
 ##### DiceSpeechlet
