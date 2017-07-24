@@ -4,7 +4,7 @@
 	<groupId>uk.co.claritysoftware</groupId>
 	<artifactId>alexa-skills-dice</artifactId>
 	<packaging>jar</packaging>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.0</version>
 
 	<name>Alexa Dice Rolling Skill</name>
 	<description>Alexa Skill written in Java to perform dice rolling for board games</description>
