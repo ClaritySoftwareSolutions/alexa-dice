@@ -117,6 +117,7 @@
 					<pushReleases>true</pushReleases>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<squash>true</squash>
+					<noDeploy>true</noDeploy>
 					<flowInitContext>
 						<masterBranchName>master</masterBranchName>
 						<developBranchName>develop</developBranchName>
